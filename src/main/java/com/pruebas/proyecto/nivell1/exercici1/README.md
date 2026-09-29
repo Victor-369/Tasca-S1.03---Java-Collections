@@ -22,8 +22,8 @@ src/main/java/com/pruebas/proyecto/nivell1/
 
 | File | Path |
 |------|------|
-| `Main.java` | `src/main/java/com/pruebas/proyecto/nivell1/Main.java` |
-| `Month.java` | `src/main/java/com/pruebas/proyecto/nivell1/model/Month.java` |
+| `Main.java` | `Main.java` |
+| `Month.java` | `model/Month.java` |
 
 ## Important notes
 

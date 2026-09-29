@@ -1,4 +1,4 @@
-package com.pruebas.proyecto.nivell1.model;
+package com.pruebas.proyecto.nivell1.exercici1.model;
 
 import java.util.Objects;
 

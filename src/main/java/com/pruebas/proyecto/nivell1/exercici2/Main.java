@@ -1,4 +1,4 @@
-package com.pruebas.proyecto.nivell2;
+package com.pruebas.proyecto.nivell1.exercici2;
 
 import java.util.ArrayList;
 import java.util.List;
