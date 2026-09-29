@@ -3,7 +3,7 @@ package com.pruebas.proyecto.nivell1.model;
 import java.util.Objects;
 
 public class Month {
-    private String name;
+    private final String name;
 
     public Month(String name) {
         this.name = name;
