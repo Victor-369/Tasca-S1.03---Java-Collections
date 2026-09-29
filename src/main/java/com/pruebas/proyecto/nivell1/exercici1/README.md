@@ -20,11 +20,6 @@ src/main/java/com/pruebas/proyecto/nivell1/
     └── Month.java
 ```
 
-| File | Path |
-|------|------|
-| `Main.java` | `Main.java` |
-| `Month.java` | `model/Month.java` |
-
 ## Important notes
 
 ### A `HashSet` does not keep its elements in order
