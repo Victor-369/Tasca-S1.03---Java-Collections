@@ -1,7 +1,7 @@
 package com.pruebas.proyecto.nivell1.exercici1;
 
 
-import com.pruebas.proyecto.nivell1.model.Month;
+import com.pruebas.proyecto.nivell1.exercici1.model.Month;
 
 import java.util.*;
 
