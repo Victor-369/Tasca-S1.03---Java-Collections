@@ -6,13 +6,18 @@ public class ConsoleView {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static String askPlayerName() {
-        String name;
-        do {
-            System.out.print("Write your name: ");
-            name = scanner.nextLine().trim();
-        } while (name.isBlank());
+        while (true) {
+            System.out.print("Write your name (without semicolons): ");
+            String name = scanner.nextLine().trim();
 
-        return name;
+            if (name.isBlank()) {
+                System.out.println("The name cannot be empty.");
+            } else if (name.contains(";")) {
+                System.out.println("The name cannot contain a semicolon (;).");
+            } else {
+                return name;
+            }
+        }
     }
 
     public static String askCapital(String country, int question) {

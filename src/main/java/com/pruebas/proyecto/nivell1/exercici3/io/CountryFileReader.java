@@ -13,23 +13,41 @@ public class CountryFileReader {
     );
 
     public static HashMap<String, String> loadData() throws IOException {
-        if (!countriesFileExists()) throw new IOException("File does not exists");
-
-        HashMap<String, String> tmpCountries = new HashMap<>();
-
-        try (var lector = Files.newBufferedReader(COUNTRIES_FILE, StandardCharsets.UTF_8)) {
-            String text;
-            while ((text = lector.readLine()) != null)  {
-                String[] splitted = text.split(" ");
-                String country = splitted[0].replace("_", " ");
-                String capital = splitted[1].replace("_", " ");
-                tmpCountries.put(country, capital);
-            }
-        } catch (IOException e) {
-            System.out.println("Error reading file: " + e.getMessage());
+        if (!countriesFileExists()) {
+            throw new IOException("Countries file does not exist: " + COUNTRIES_FILE);
         }
 
-        return tmpCountries;
+        HashMap<String, String> countries = new HashMap<>();
+
+        try (var reader = Files.newBufferedReader(COUNTRIES_FILE, StandardCharsets.UTF_8)) {
+            String line;
+            int lineNumber = 0;
+
+            while ((line = reader.readLine()) != null) {
+                lineNumber++;
+
+                if (line.isBlank()) {
+                    continue;
+                }
+
+                String[] fields = line.split(",", -1);
+                if (fields.length != 2
+                        || fields[0].isBlank()
+                        || fields[1].isBlank()) {
+                    throw new IOException(
+                            "Invalid country record at line " + lineNumber
+                                    + ". Expected: country,capital"
+                    );
+                }
+
+                String country = fields[0].trim().replace("_", " ");
+                String capital = fields[1].trim().replace("_", " ");
+
+                countries.put(country, capital);
+            }
+        }
+
+        return countries;
     }
 
     private static boolean countriesFileExists() {
