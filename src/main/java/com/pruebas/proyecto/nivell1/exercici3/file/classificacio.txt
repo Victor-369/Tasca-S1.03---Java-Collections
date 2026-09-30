@@ -1,2 +1,2 @@
-alex 10
-jose 1
+alex;10
+jose;1
