@@ -7,32 +7,36 @@ import java.util.*;
 
 public class Main {
     public static void main() {
+        start();
+    }
+
+    public static void start() {
         ArrayList<Month> monthsArrayList = new ArrayList<>(List.of(
-                new Month("Gener"),
-                new Month("Febrer"),
-                new Month("Març"),
-                new Month("Abril"),
-                new Month("Maig"),
-                new Month("Juny"),
-                new Month("Juliol"),
-                new Month("Setembre"),
-                new Month("Octubre"),
-                new Month("Novembre"),
-                new Month("Desembre")
+                new Month("January"),
+                new Month("February"),
+                new Month("March"),
+                new Month("April"),
+                new Month("May"),
+                new Month("June"),
+                new Month("July"),
+                new Month("September"),
+                new Month("October"),
+                new Month("November"),
+                new Month("December")
         ));
 
         System.out.println("Original array:");
         for (Month month : monthsArrayList) System.out.println(month);
 
-        System.out.println("\nAdded 'Agost':");
-        monthsArrayList.add(7, new Month("Agost"));
+        System.out.println("\nAdded 'August':");
+        monthsArrayList.add(7, new Month("August"));
         for (Month month : monthsArrayList) System.out.println(month);
 
         System.out.println("\nTrying to add duplicates to HashSet:");
         Set<Month> monthsHashSet = new HashSet<>(monthsArrayList);
         System.out.println("Initial length: " + monthsHashSet.size());
-        System.out.println("Add 'Gener': " + monthsHashSet.add(new Month("Gener")));
-        System.out.println("Add 'Febrer': " + monthsHashSet.add(new Month("Febrer")));
+        System.out.println("Add 'January': " + monthsHashSet.add(new Month("January")));
+        System.out.println("Add 'February': " + monthsHashSet.add(new Month("February")));
         System.out.println("Final length: " + monthsHashSet.size());
 
         System.out.println("\nHashSet with Iterator:");
