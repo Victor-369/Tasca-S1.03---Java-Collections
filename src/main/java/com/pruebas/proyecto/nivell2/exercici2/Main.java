@@ -4,6 +4,7 @@ import com.pruebas.proyecto.nivell2.exercici2.model.Restaurant;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 
 public class Main {
@@ -12,6 +13,9 @@ public class Main {
         restaurants.add(new Restaurant("El Celler de Can Roca", 6));
         restaurants.add(new Restaurant("Disfrutar", 9));
         restaurants.add(new Restaurant("DiverXO", 4));
+        restaurants.add(new Restaurant("DiverXO", 4));
+        restaurants.add(new Restaurant("Asador Etxebarri", 8));
+        restaurants.add(new Restaurant("Asador Etxebarri", 8));
         restaurants.add(new Restaurant("Asador Etxebarri", 8));
         restaurants.add(new Restaurant("Arzak", 3));
         restaurants.add(new Restaurant("Tickets", 7));
@@ -23,12 +27,14 @@ public class Main {
         System.out.println("Actual list of restaurants: ");
         System.out.println(restaurants);
 
-        restaurants.sort(
+        HashSet<Restaurant> hashSetRestaurants = new HashSet<>(restaurants);
+        List<Restaurant> orderedRestaurants = new ArrayList<>(hashSetRestaurants);
+        orderedRestaurants.sort(
                 Comparator.comparing(Restaurant::getName)
                         .thenComparing(Restaurant::getScore, Comparator.reverseOrder())
         );
 
-        System.out.println("\nOrdered list of restaurants: ");
-        System.out.println(restaurants);
+        System.out.println("\nRestaurants without duplicates, ordered by name and score:");
+        System.out.println(orderedRestaurants);
     }
 }
