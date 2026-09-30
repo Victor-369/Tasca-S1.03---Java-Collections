@@ -1,17 +1,17 @@
 # Exercise 2 — Sorting by multiple criteria
 
-This exercise sorts a list of restaurants alphabetically by name and, when two names are the same, by score in descending order.
+This exercise stores restaurants in a `HashSet` to remove exact duplicates, then sorts a list copy alphabetically by name and, when two names are the same, by score in descending order.
 
 ## Classes
 
-- `Main` creates a sample list and sorts it in place using `List.sort()` with a `Comparator`. The comparator orders restaurants by name first, then by score from highest to lowest.
-- `model/Restaurant` stores each restaurant's `name` and `score` and provides getters used by the comparator. Its `toString()` method formats restaurants for console output.
+- `Main` creates a sample list, adds its elements to a `HashSet`, copies the set to a list, and sorts that list using a `Comparator`.
+- `model/Restaurant` stores each restaurant's `name` and `score`. Its `equals()` and `hashCode()` methods use both fields, so only exact name-and-score duplicates are removed. Its `toString()` method formats restaurants for console output.
 
 ## Running the program
 
-Run the `main` method in `Main`. It displays the original list followed by the sorted list. The sample names are unique, so the secondary score ordering is not visible in this particular output. For restaurants with the same name, the higher score appears first.
+Run the `main` method in `Main`. It displays the original list followed by the unique restaurants ordered by name. Restaurants with the same name but different scores are kept, with the higher score first. The sample includes repeated `DiverXO(4)` and `Asador Etxebarri(8)` entries, which each appear only once in the final list.
 
-The sorted sample order is:
+The sorted, duplicate-free sample order is:
 
 ```text
 Arzak(3)
@@ -26,4 +26,4 @@ Quique Dacosta(2)
 Tickets(7)
 ```
 
-The comparator uses Java's natural `String` ordering for names. The order of restaurants with both the same name and the same score is not further specified.
+The comparator uses Java's natural `String` ordering for names, followed by descending score. `HashSet` itself does not guarantee an iteration order; the displayed order comes from sorting the list copy.

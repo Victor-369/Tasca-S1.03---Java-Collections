@@ -4,11 +4,11 @@ A Java console quiz that practises reading files, using a `HashMap`, and interac
 
 ## How to play
 
-1. Run `Main` and enter a non-empty player name. Names containing a semicolon (`;`) are not accepted because that character separates fields in the classification file.
+1. Run `Main` and enter a non-empty player name. Names containing a semicolon (`;`) are rejected by input validation.
 2. The program reads the country and capital pairs from `countries.txt`.
 3. It shuffles the available countries and asks ten questions about different countries. At least ten valid country records must be available.
 4. Enter each country's capital. Answers are compared without distinguishing upper-case and lower-case letters; leading and trailing spaces are ignored.
-5. The programme displays the final score out of ten and saves the player's name and score in `classificacio.txt`. The maximum score per player is 10 points.
+5. The programme displays the final score out of ten and appends the player's name and score to `classificacio.txt`.
 
 ## Project structure
 
@@ -57,20 +57,20 @@ src/main/java/com/pruebas/proyecto/nivell1/exercici3/file/classificacio.txt
 Each record uses this format:
 
 ```text
-playername;score
+playername:score
 ```
 
-Names are stored in lower case. Playing again with the same name updates that player's score. The file is created if it does not already exist. Scores must be integers from 0 to 10; therefore, a player's maximum score is 10 points. Malformed existing records cause an error rather than being silently ignored.
+The writer appends a new record each time the quiz is completed; it does not update earlier records for the same player. The file is created if it does not already exist. Player names are saved after leading and trailing spaces are trimmed; semicolons and line breaks are not allowed.
 
 ## Main classes
 
-- `Main` loads the data, selects the questions, checks answers, calculates the score, and saves the result.
+- `Main` loads the data, selects ten random questions, checks answers, calculates the score, and saves the result.
 - `ConsoleView` handles console input and output.
 - `io/CountryFileReader` loads and validates the country and capital records.
-- `io/ClassificationFileWriter` validates, reads, and updates the classification.
+- `io/ClassificationFileWriter` validates the player name and appends the result to the classification file.
 - `exception/NeedMoreCountriesException` represents the case where fewer than ten countries are available.
 
-## Running the programme
+## Running the program
 
 The file paths are relative to the project root. Run `Main` with the project root as the working directory so that the input and classification files can be found.
 
