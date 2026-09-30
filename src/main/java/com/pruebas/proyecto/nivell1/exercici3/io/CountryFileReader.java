@@ -1,7 +1,7 @@
 package com.pruebas.proyecto.nivell1.exercici3.io;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
@@ -19,7 +19,7 @@ public class CountryFileReader {
 
         HashMap<String, String> countries = new HashMap<>();
 
-        try (var reader = Files.newBufferedReader(COUNTRIES_FILE, StandardCharsets.UTF_8)) {
+        try (BufferedReader reader = Files.newBufferedReader(COUNTRIES_FILE)) {
             String line;
             int lineNumber = 0;
 

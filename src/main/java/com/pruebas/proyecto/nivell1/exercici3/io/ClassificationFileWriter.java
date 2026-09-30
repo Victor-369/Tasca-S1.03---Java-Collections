@@ -2,13 +2,7 @@ package com.pruebas.proyecto.nivell1.exercici3.io;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.StandardOpenOption;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
 
 public class ClassificationFileWriter {
     private static final Path CLASSIFICATION_FILE = Path.of(
