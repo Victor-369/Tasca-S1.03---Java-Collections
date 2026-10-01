@@ -3,7 +3,7 @@ package com.pruebas.proyecto.nivell2.exercici1.model;
 import java.util.Objects;
 
 public class Restaurant {
-    private final String name;
+    private String name;
     private int score;
 
     public Restaurant(String name, int score) {
